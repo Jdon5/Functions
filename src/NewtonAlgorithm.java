@@ -1,12 +1,17 @@
 public class NewtonAlgorithm {
 
-    public double findRoot(Function function,double x){
 
-        double derivative = function.calculateDerivative(x);
-        double value = function.calculateValue(x);
+    //iterativ
+    public double findRoot(Function function,double x,int iteration){
 
-        double 
+        double xNew = x;
 
-        return 0;
+        for(int i=0; i<iteration;i++) {
+            double derivative = function.calculateDerivative(xNew);
+            double value = function.calculateValue(xNew);
+            xNew = xNew-(value/derivative);
+        }
+        return xNew;
     }
+
 }

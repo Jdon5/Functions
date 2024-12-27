@@ -39,17 +39,4 @@ public class Polynom implements Function{
         return "p(x) = "+polynom+"\np'(x)= "+derivative;
     }
 
-    public static void main(String[] args) {
-
-        double[] factors = {6,-5,1};
-        Polynom polynom = new Polynom(factors);
-
-        double value = polynom.calculateValue(2);
-        double derivative = polynom.calculateDerivative(2);
-
-        System.out.println(polynom);
-        System.out.println(value);
-        System.out.println(derivative);
-
-    }
 }
