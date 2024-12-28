@@ -3,15 +3,23 @@ public class NewtonAlgorithm {
 
     //iterativ
     public double findRoot(Function function,double x,int iteration){
-
-        double xNew = x;
-
         for(int i=0; i<iteration;i++) {
-            double derivative = function.calculateDerivative(xNew);
-            double value = function.calculateValue(xNew);
-            xNew = xNew-(value/derivative);
+            double derivative = function.calculateDerivative(x);
+            double value = function.calculateValue(x);
+            x = x-(value/derivative);
         }
-        return xNew;
+        return x;
     }
 
+    public double findRoot2(Function function,double x,int iteration){
+        double derivative = function.calculateDerivative(x);
+            double value = function.calculateValue(x);
+        if(iteration<=1){
+            x = x-(value/derivative);
+            return x;
+        } else {
+            //Rekursion
+            return findRoot2(function, x-(value/derivative), iteration-1);
+        }
+    }
 }
